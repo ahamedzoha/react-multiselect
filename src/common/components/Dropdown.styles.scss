@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700,900");
+
+@mixin styling() {
+  background-color: white;
+  border-color: #ccc;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  // box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.dd-wrapper {
+  display: flex;
+  min-height: 38px;
+  flex-wrap: wrap;
+
+  .dd-header {
+    @include styling();
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    width: 100%;
+    padding: 0 20px;
+    align-items: center;
+
+    &__title--grey {
+      font-weight: 400;
+      color: #eaeaea;
+    }
+
+    .dd-header__action--openclose {
+      .close {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .dd-list-container {
+    overflow: hidden;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08),
+      0 12px 24px 0 rgba(0, 0, 0, 0.08);
+    margin-top: 20px;
+    border-radius: 5px;
+
+    .dd-action--clear {
+      cursor: pointer;
+
+      p {
+        color: #e2136e;
+      }
+    }
+
+    .dd-list-content {
+      background-color: #fff;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+
+      max-height: 250px;
+      overflow-y: scroll;
+
+      li {
+        list-style-type: none;
+
+        // &:first-of-type {
+        //   > button {
+        //     padding-top: 22px;
+        //   }
+        // }
+
+        //   &:last-of-type > button {
+        //     border-bottom-left-radius: 4px;
+        //     border-bottom-right-radius: 4px;
+        //   }
+
+        button {
+          display: flex;
+          justify-content: space-between;
+          background-color: white;
+          font-size: 16px;
+
+          border: 0;
+          width: 100%;
+          color: #434364;
+          align-items: center;
+
+          &.padding-m {
+            padding: 6px 20px 6px 20px;
+          }
+          &.padding-s {
+            padding: 15px 20px 15px 20px;
+          }
+
+          .checkbox {
+            // &.MuiCheckbox-root {
+            //   color: #434364;
+            // }
+          }
+          .name {
+            text-align: left;
+            flex-grow: 1;
+          }
+          .l-padding {
+            padding-left: 8px;
+          }
+
+          &:hover,
+          &:focus {
+            cursor: pointer;
+            font-weight: 400;
+            background-color: #fff8fb;
+          }
+        }
+      }
+    }
+  }
+}
