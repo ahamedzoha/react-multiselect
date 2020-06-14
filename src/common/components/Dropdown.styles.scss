@@ -25,7 +25,7 @@
 
     &__title--grey {
       font-weight: 400;
-      color: #eaeaea;
+      color: #808080;
     }
 
     .dd-header__action--openclose {
@@ -47,6 +47,22 @@
 
       p {
         color: #e2136e;
+      }
+    }
+
+    .dd-searchbox {
+      display: flex;
+      padding: 15px 30px 15px 30px;
+
+      .search-icon {
+        position: absolute;
+      }
+      .search-lable {
+        position: relative;
+      }
+      #search_input {
+        width: 100%;
+        padding-left: 30px;
       }
     }
 

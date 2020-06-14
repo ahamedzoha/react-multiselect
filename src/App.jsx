@@ -45,6 +45,7 @@ class App extends React.Component {
             title="Filter By Agency"
             items={this.state.data}
             multiselect
+            searchable
             onChange={this.handleChange}
           />
         </div>

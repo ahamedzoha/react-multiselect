@@ -2,16 +2,27 @@ import React, { useState, useRef } from "react"
 import "./Dropdown.styles.scss"
 import useOnclickOutside from "react-cool-onclickoutside"
 import toggle_down from "./assets/toggle_down.svg"
+import search_icon from "./assets/search_icon.svg"
+
 import Checkbox from "@material-ui/core/Checkbox"
+// import { TextInput } from "react-materialize"
 
 //Dependencies
 //npm add node-sass
 //npm add react-cool-onclickoutside
 //npm add @material-ui/core
 
-const Dropdown = ({ title, items, multiselect = false, onChange }) => {
+const Dropdown = ({
+  title,
+  items,
+  multiselect = false,
+  onChange,
+  searchable,
+}) => {
   const [open, setOpen] = useState(false)
   const [selection, setSelection] = useState([])
+  // const [filteredOptions, setFilter] = useState([])
+  const [search, setSearch] = useState("")
   const toggle = () => setOpen(!open)
   const ref = useRef()
   const [checked, setChecked] = React.useState(true)
@@ -21,6 +32,18 @@ const Dropdown = ({ title, items, multiselect = false, onChange }) => {
   }
   useOnclickOutside(ref, () => {
     setOpen(false)
+  })
+
+  // const handleSearch = (event) => {
+  //   setSearch(event.target.value)
+  //   let filter = items.filter((item) => {
+  //     return item.name.indexOf(search) !== -1
+  //   })
+  //   setFilter(filter)
+  //   console.log(filter)
+  // }
+  const filteredItems = items.filter((item) => {
+    return item.name.toLowerCase().includes(search.toLocaleLowerCase())
   })
 
   const handleOnClick = (item) => {
@@ -79,8 +102,22 @@ const Dropdown = ({ title, items, multiselect = false, onChange }) => {
       </div>
       {open && (
         <div className="dd-list-container" ref={ref}>
+          <div className="dd-searchbox">
+            <label className="search-lable" htmlFor="search_input"></label>
+            <img class="search-icon" aria-hidden="true" src={search_icon} />
+            <input
+              type="text"
+              name="search"
+              id="search_input"
+              placeholder="Search..."
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
           <ul className="dd-list-content">
-            {items.map((item) => (
+            {filteredItems.length === 0 && (
+              <li className="dd-list-item">Search found no results</li>
+            )}
+            {filteredItems.map((item) => (
               <li className="dd-list-item" key={item.id}>
                 {multiselect ? (
                   <button
