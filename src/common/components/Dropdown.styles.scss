@@ -65,6 +65,10 @@
       #search_input {
         width: 100%;
         padding-left: 30px;
+
+        // &:focus {
+
+        // }
       }
     }
 
@@ -110,9 +114,9 @@
           }
 
           .checkbox {
-            // &.MuiCheckbox-root {
-            //   color: #434364;
-            // }
+            &.MuiCheckbox-root {
+              color: #e2136e;
+            }
           }
           .name {
             text-align: left;
