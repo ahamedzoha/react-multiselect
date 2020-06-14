@@ -52,10 +52,12 @@
 
     .dd-searchbox {
       display: flex;
-      padding: 15px 30px 15px 30px;
+      padding: 15px 28px 15px 28px;
 
       .search-icon {
         position: absolute;
+        top: 5px;
+        left: 6px;
       }
       .search-lable {
         position: relative;
@@ -104,7 +106,7 @@
             padding: 6px 20px 6px 20px;
           }
           &.padding-s {
-            padding: 15px 20px 15px 20px;
+            padding: 15px 28px 15px 30px;
           }
 
           .checkbox {

@@ -1,11 +1,10 @@
 import React, { useState, useRef } from "react"
-import "./Dropdown.styles.scss"
 import useOnclickOutside from "react-cool-onclickoutside"
-import toggle_down from "./assets/toggle_down.svg"
-import search_icon from "./assets/search_icon.svg"
-
 import Checkbox from "@material-ui/core/Checkbox"
-// import { TextInput } from "react-materialize"
+
+import "./Dropdown.styles.scss"
+import toggle_down from "./assets/toggle_down.svg"
+import { ReactComponent as SearchIcon } from "./assets/search_icon.svg"
 
 //Dependencies
 //npm add node-sass
@@ -103,8 +102,14 @@ const Dropdown = ({
       {open && (
         <div className="dd-list-container" ref={ref}>
           <div className="dd-searchbox">
-            <label className="search-lable" htmlFor="search_input"></label>
-            <img class="search-icon" aria-hidden="true" src={search_icon} />
+            <label className="search-lable" htmlFor="search_input">
+              <SearchIcon
+                className="search-icon"
+                aria-hidden="true"
+                alt="Search"
+              />
+            </label>
+
             <input
               type="text"
               name="search"
